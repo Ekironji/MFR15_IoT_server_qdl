@@ -28,13 +28,27 @@ public class JsonParser {
     }
 
 
-    public String getMessageError(String error){
+    public static String getMessageError(String error){
         String response = "";
 
         JSONObject json = new JSONObject();
         try {
             json.put("response", "false");
             json.put("error", error);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return json.toString();
+    }
+
+    public static String getMessageSuccess(String error){
+        String response = "";
+
+        JSONObject json = new JSONObject();
+        try {
+            json.put("RESPONSE", "true");
+            json.put("MESSAGE", error);
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -13,7 +13,10 @@ import android.widget.TextView;
  */
 public class MFR15MainActivityFragment extends Fragment {
 
-    TextView logTextView;
+    private TextView logTextView;
+
+    private TextView node1TextView;
+    private TextView node2TextView;
 
     public MFR15MainActivityFragment() {
     }
@@ -23,12 +26,32 @@ public class MFR15MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_mfr15_main, container, false);
 
-        logTextView = (TextView) getActivity().findViewById(R.id.log);
+        logTextView   = (TextView) rootView.findViewById(R.id.log);
+        node1TextView = (TextView) rootView.findViewById(R.id.node1TextView);
+        node2TextView = (TextView) rootView.findViewById(R.id.node2TextView);
 
+        ((MFR15MainActivity)getActivity()).viewBuildComplete();
         return rootView;
     }
 
     public void appendNotification(String msg){
-        logTextView.setText(logTextView.getText() + "\n" + msg);
+        logTextView.setText(msg + "\n" + logTextView.getText());
     }
+
+    public void setNode1TextView(String s){
+        s = s.replace('|','\n');
+        node1TextView.setText("Donatello\n" + s);
+    }
+
+    public void setNode2TextView(String s){
+        s = s.replace('|','\n');
+        node2TextView.setText("Michelangelo\n" + s);
+    }
+
+    public void setNode3TextView(String s){}
+
+    public void setNode4TextView(String s){}
+
+    public void setNode5TextView(String s){}
+
 }

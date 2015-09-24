@@ -17,8 +17,8 @@ public class JsonParser {
         JSONObject response = new JSONObject();
         try {
             response = new JSONObject();
-            response.put("response", "true");
-            response.put("server_ip", localip);
+            response.put("RESPONSE", "true");
+            response.put("SERVER_IP", localip);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -33,8 +33,8 @@ public class JsonParser {
 
         JSONObject json = new JSONObject();
         try {
-            json.put("response", "false");
-            json.put("error", error);
+            json.put("RESPONSE", "false");
+            json.put("ERROR", error);
         } catch (JSONException e) {
             e.printStackTrace();
         }
